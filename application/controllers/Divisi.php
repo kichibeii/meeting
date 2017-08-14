@@ -105,15 +105,23 @@ public function do_tambah(){
 	if(!isset($_SESSION['id_user'])){
 		redirect('');
 	}
+	$tanggal = $this->input->post('tanggal');
+	$snack = $this->input->post('snack');
+	$now = date("Y-m-d");
+	if($tanggal == $now){
+		if ($snack==1){
+			$snack=0;
+		}
+	}
 	$perihal= $this->input->post('perihal');
 	$ruangan_meeting = $this->input->post('ruangan');
-	$tanggal = $this->input->post('tanggal');
 	$waktu_mulai = $this->input->post('waktu_mulai');
 	$waktu_selesai = $this->input->post('waktu_selesai');
 	$estimasi_peserta = $this->input->post('estimasi_peserta');
 	$pic = $this->input->post('pic');
 	$pengguna = $this->input->post('pengguna_meetings');
 	$status = $this->input->post('status');
+	$note = $this->input->post('note');
 
 	$result = $this->cek_meeting($tanggal,$waktu_mulai,$waktu_selesai,$ruangan_meeting);
 	if ($result){
@@ -127,7 +135,9 @@ public function do_tambah(){
 			'estimasi_peserta' => $estimasi_peserta,
 			'PIC' => $pic,
 			'divisi_meeting'=>$id_divisi,
-			'status' => $status
+			'status' => $status,
+			'snack'=>$snack,
+			'note'=>$note
 			);
 
 			//create meeting
@@ -172,17 +182,26 @@ public function editmeeting($id_meeting){
 public function do_editmeeting(){
 	$id_meeting  = $this->input->post('id');
 	$id_divisi = $_SESSION['id_user'];
-	echo $id_meeting;
+	$tanggal = $this->input->post('tanggal');
+	$snack = $this->input->post('snack');
+	$now = date("Y-m-d");
+	if($tanggal == $now){
+		if ($snack==1){
+			$snack=0;
+		}
+	}
 	$data = array(
 		'perihal' => $this->input->post('perihal'),
 		'ruangan_meeting' => $this->input->post('ruangan'),
-		'tanggal' => $this->input->post('tanggal'),
+		'tanggal' => $tanggal,
 		'waktu_mulai' => $this->input->post('waktu_mulai'),
 		'waktu_selesai' => $this->input->post('waktu_selesai'),
 		'estimasi_peserta' => $this->input->post('estimasi_peserta'),
 		'PIC' => $this->input->post('pic'),
 		'divisi_meeting'=>$id_divisi,
-		'status'=> $this->input->post('status')
+		'status'=> $this->input->post('status'),
+		'snack'=> $snack,
+		'note' => $this->input->post('note')
 		);
 
 	$result = $this->Meeting_model->updatemeeting($id_meeting,$data);
@@ -199,7 +218,7 @@ public function do_editmeeting(){
 	</div>';
 	}
 	$this->session->set_flashdata('notification', $notification);
-	redirect('Divisi');
+	redirect('Divisi ');
 }
 
 

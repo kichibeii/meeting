@@ -19,11 +19,11 @@
 
           <!-- tab header -->
           <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab_content1" id="mmeeting-tab" role="tab" data-toggle="tab" aria-expanded="true">My Meeting</a>
+            <li role="presentation" class="active"><a href="#tab_content1" id="meeting-tab" role="tab" data-toggle="tab" aria-expanded="true">My Meeting</a>
             </li>
             <li role="presentation" class=""><a href="#tab_content2" role="tab" id="anggota-tab" data-toggle="tab" aria-expanded="false">My Member</a>
             </li>
-            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="jmeeting-tab" data-toggle="tab" aria-expanded="false">All Meeting</a>
+            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="allmeeting-tab" data-toggle="tab" aria-expanded="false">All Meeting</a>
             </li>
           </ul>
           <!-- /tab header -->
@@ -32,7 +32,7 @@
           <div id="myTabContent" class="tab-content">
 
             <!-- content 1 -->
-            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="mmeeting-tab">
+            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="meeting-tab">
 
               <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowraptable-bordered jambo_table bulk_action" cellspacing="0" width="100%">
                 <thead>
@@ -64,7 +64,7 @@
             <!-- content 1 -->
 
             <!-- content 2 -->
-            <div role="tabpanel" class="tab-pane fade active in" id="tab_content2" aria-labelledby="anggota-tab">
+            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="anggota-tab">
 
               <table id="datatable" class="table table-striped table-bordered dt-responsive nowrap table-bordered jambo_table bulk_action" cellspacing="0" width="100%">
                 <thead>
@@ -121,8 +121,7 @@
             <!-- content 2 -->
 
             <!-- content 3 -->
-            <div role="tabpanel" class="tab-pane fade active in" id="tab_content3" aria-labelledby="jmeeting-tab">
-
+            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="allmeeting-tab">
               <table id="datatable" class="table table-striped table-bordered dt-responsive nowrap table-bordered jambo_table bulk_action" cellspacing="0" width="100%">
                 <thead>
                   <tr class="headings">
@@ -147,10 +146,11 @@
                   <?php endforeach?>
                 </tbody>
               </table>
-
             </div>
             <!-- content 3 -->
+
           </div>
+
         </div>
       </div>
     </div>
@@ -158,7 +158,4 @@
   <a href="<?=base_url('Divisi/tambahmeeting')?>" class="btn-floating btn-large blue" style="color: rgb(63,83,103); position:fixed; bottom: 60px; right: 35px ; z-index: 1000!important"><i class="glyphicon glyphicon-plus-sign fa-4x" ></i></a>
   <div class="clearfix"></div>
 </div>
-</div>
-
-
 </body>

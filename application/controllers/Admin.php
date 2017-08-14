@@ -17,6 +17,7 @@ class Admin extends CI_Controller
 		$data['divisis'] = $this->Divisi_model->get_all_divisi();
 		$data['ruangans'] = $this->Ruangan_model->get_all_ruangan();
 		$data['tahun_meeting'] = $this->Meeting_model->get_by_year();
+		$data['snacks'] = $this->Meeting_model->get_snack();
 		if($_SESSION['status']=="admin"){
 			$data['title'] = 'Admin';
 			$data['ruangans'] = $this->Ruangan_model->get_all_ruangan();
@@ -66,7 +67,8 @@ class Admin extends CI_Controller
 		$data = array(
 			'nama_ruangan'=>$this->input->post('id_room'),
 			'kapasitas_ruangan'=>$this->input->post('kapasitas_ruangan'),
-			'ruangan_nama'=>$this->input->post('nama_ruangan')
+			'ruangan_nama'=>$this->input->post('nama_ruangan'),
+			'showroom'=>$this->input->post('showroom')
 		);
 		$result  = $this->Ruangan_model->insert($data);
 
